@@ -25,6 +25,7 @@ def load_job():
         "experience": experience,
         "degree": degree,
     }
+    
 
 
 def load_candidate():
@@ -35,38 +36,33 @@ def load_candidate():
     choice = input("Enter choice: ").strip()
 
     if choice == "1":
-        print("\nEnter Resume Details")
-
-        name = get_non_empty("Name: ")
-        email = get_valid_email("Email: ")
-        degree = get_non_empty("Degree: ")
-        exp = get_valid_number("Experience (years): ", 0, 50)
-        skills = get_valid_skills("Skills (comma separated): ")
-
-        text = f"""
-        Name: {name}
-        Email: {email}
-        Degree: {degree}
-        Experience: {exp}
-        Skills: {', '.join(skills)}
-        """
-
+        # ... (manual entry logic) ...
         data = parse_resume_text(text)
-
     elif choice == "2":
         path = get_non_empty("Enter resume file path: ")
         data = parse_resume_file(path)
+    else:
+        print("Invalid choice. Try again.")
+        return load_candidate()
+
+    # SAFE EXTRACTION: Use .get() to provide defaults if keys are missing
+    return Candidate(
+        name=data.get("name", "Unknown"),
+        email=data.get("email", "Unknown"),
+        skills=data.get("skills", []),
+        experience=data.get("experience", 0.0),
+        degree=data.get("degree", "Unknown"))
 
     else:
         print("Invalid choice. Try again.")
         return load_candidate()
 
     return Candidate(
-        data["name"],
-        data["email"],
-        data["skills"],
-        data["experience"],
-        data["degree"],
+    data["name"],
+    data["email"],
+    data["skills"],
+    data["experience"],
+    data["degree"]
     )
 
 
@@ -90,4 +86,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
