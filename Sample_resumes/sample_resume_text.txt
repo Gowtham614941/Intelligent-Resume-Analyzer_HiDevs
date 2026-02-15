@@ -1,5 +1,0 @@
-Name: Rahul Sharma
-Email: rahul.sharma@email.com
-Degree: B.Tech in Computer Science
-Experience: 3 years
-Skills: Python, SQL, Machine Learning, Data Analysis, Git, Communication
