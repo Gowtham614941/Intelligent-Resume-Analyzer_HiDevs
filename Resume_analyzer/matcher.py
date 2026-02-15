@@ -6,8 +6,8 @@ def calculate_score(candidate, job):
 
     score += candidate.experience * 5
 
-    if candidate.degree == job["degree"].lower():
-        score += 20
+    if candidate.degree != "unknown" and candidate.degree == job["degree"].lower().strip():
+    score += 20
 
     if candidate.experience >= job["experience"]:
         score += 15
@@ -19,5 +19,6 @@ def calculate_score(candidate, job):
 def rank_candidates(candidates, job):
     for c in candidates:
         calculate_score(c, job)
+
 
     return sorted(candidates, key=lambda x: x.score, reverse=True)
