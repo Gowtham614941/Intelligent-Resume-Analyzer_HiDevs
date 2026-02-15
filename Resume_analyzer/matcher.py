@@ -1,13 +1,19 @@
 def calculate_score(candidate, job):
     score = 0
-
-    skill_matches = len(set(candidate.skills) & set(job["skills"]))
-    score += skill_matches * 10
-
+    
+    # Identify matches and gaps
+    job_skills_set = set(job["skills"])
+    candidate_skills_set = set(candidate.skills)
+    
+    matched_skills = job_skills_set & candidate_skills_set
+    # New logic: Identify what is missing
+    candidate.missing_skills = list(job_skills_set - candidate_skills_set)
+    
+    score += len(matched_skills) * 10
     score += candidate.experience * 5
 
-    if candidate.degree != "unknown" and candidate.degree == job["degree"].lower().strip():
-    score += 20
+    if candidate.degree == job["degree"].lower():
+        score += 20
 
     if candidate.experience >= job["experience"]:
         score += 15
@@ -22,3 +28,4 @@ def rank_candidates(candidates, job):
 
 
     return sorted(candidates, key=lambda x: x.score, reverse=True)
+
