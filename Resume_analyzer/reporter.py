@@ -8,16 +8,19 @@ def generate_report(candidates, job):
     lines.append(f"Minimum Experience: {job['experience']} years\n")
 
     for i, c in enumerate(candidates, 1):
-        status = (
-            "Selected" if c.score >= 70 else "Maybe" if c.score >= 50 else "Rejected"
-        )
+    status = (
+        "Selected" if c.score >= 70 else "Maybe" if c.score >= 50 else "Rejected"
+    )
 
-        lines.append(f"Rank {i}: {c.name}")
-        lines.append(f"Email: {c.email}")
-        lines.append(f"Score: {c.score}")
-        lines.append(f"Experience: {c.experience} years")
-        lines.append(f"Degree: {c.degree}")
-        lines.append(f"Decision: {status}")
-        lines.append("-" * 40)
+    lines.append(f"Rank {i}: {c.name}")
+    lines.append(f"Email: {c.email}")
+    lines.append(f"Score: {c.score}")
+    
+    # New line: Show the skill gap
+    gap_text = ", ".join(c.missing_skills) if c.missing_skills else "None! Perfect Match"
+    lines.append(f"Missing Skills: {gap_text}")
+    
+    lines.append(f"Decision: {status}")
+    lines.append("-" * 40)
 
     return "\n".join(lines)
