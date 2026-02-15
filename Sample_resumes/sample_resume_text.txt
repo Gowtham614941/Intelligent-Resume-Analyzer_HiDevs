@@ -1,0 +1,6 @@
+Name: Jane Smith 
+Email: jane.smith@webmail.org 
+Degree: Master of Arts
+Experience: 3 yrs
+Relevant Skills: Python, HTML, CSS, Communication
+
