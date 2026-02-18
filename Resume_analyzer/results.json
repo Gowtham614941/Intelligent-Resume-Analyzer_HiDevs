@@ -1,0 +1,32 @@
+{
+    "job": {
+        "title": "data scientist",
+        "skills": [
+            "python",
+            "machine learning"
+        ],
+        "experience": 2.0,
+        "degree": "bachelor"
+    },
+    "candidates": [
+        {
+            "name": "john doe",
+            "email": "john.doe@gmail.com",
+            "skills": [
+                "python",
+                "sql"
+            ],
+            "experience": 3.0,
+            "degree": "bachelor",
+            "score": 60.0
+        },
+        {
+            "name": "Unknown",
+            "email": "john.doe@email.com",
+            "skills": [],
+            "experience": 0,
+            "degree": "unknown",
+            "score": 0
+        }
+    ]
+}
