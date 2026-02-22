@@ -5,16 +5,26 @@ The system analyzes resumes, matches candidates against job requirements, ranks 
 Project Structure
 intelligent-resume-analyzer/
 │
-├── main.py              # Entry point of the application
+
+├── main.py  # Entry point of the application
+
 ├── models.py            # Candidate data model (OOP)
+
 ├── matcher.py           # Scoring & ranking logic
+
 ├── reporter.py          # Report generation
+
 ├── utils.py             # Input validation utilities
+
 ├── resume_parser.py     # Resume parsing (Text/PDF/DOCX)
+
 ├── file_manager.py      # Save results to JSON
+
 │
 ├── requirements.txt     # Project dependencies
+
 ├── README.md            # Project documentation
+
 └── .gitignore           # Ignored files for Git
 
 
